@@ -1,0 +1,49 @@
+project_name,type,region,description,supported_scenarios,known_limitations,messaging_platforms,supported_llm,active_status,pricing_model,notes
+OpenClaw,核心项目,全球,MIT 开源 AI agent 框架，支持通过 skills 扩展能力，可连接多种 LLM 和消息平台,个人助理/团队协作/客服自动化/开发辅助/数据分析/内容生成,需自行部署和维护；skill 生态质量参差不齐（ClawSecure 报告 41% skills 有安全漏洞）,Slack/Discord/Telegram/WhatsApp/微信/飞书/钉钉（通过插件）,GPT-4o/GPT-4/Claude 3.5/Gemini/Llama/Mistral/DeepSeek/GLM 等,活跃（180K+ GitHub stars）,免费开源（MIT 许可证）,Peter Steinberger 开发；前身为 Clawdbot/Moltbot；全球最大开源 AI agent 框架之一
+ClawHub,基础设施类,全球,官方 Skills 注册表，类似 npm for AI agents，提供 skill 搜索/安装/发布,技能发现/安装/分发/版本管理,skill 质量审核机制有限；部分 skill 缺乏维护,不直接涉及,与 OpenClaw 核心支持的 LLM 一致,活跃（3286+ skills）,免费,官方维护；是 OpenClaw 生态的核心组件
+chowder.dev,基础设施类,全球,单 API 调用即可启动 OpenClaw 实例，AWS 托管沙箱隔离环境,快速原型/测试环境/CI/CD 集成/临时 agent 部署,依赖 AWS 基础设施；沙箱环境可能有资源限制,通过 OpenClaw 原生支持,与 OpenClaw 核心一致,活跃,按用量计费（API 调用）,面向开发者的 BaaS（Backend-as-a-Service）产品
+OpenViking,基础设施类,全球,ByteDance 开源上下文数据库，用文件系统范式管理 agent 的记忆/资源/技能,长期记忆管理/知识库构建/技能持久化/多 agent 共享上下文,文件系统范式在超大规模数据下性能待验证,不直接涉及,模型无关,活跃（字节跳动维护）,免费开源,字节跳动开源；为 OpenClaw 提供结构化上下文管理能力
+ClawDeck,基础设施类,全球,开源 mission control 看板，Kanban 式管理多个 OpenClaw agent 任务,多 agent 监控/任务分配/进度追踪/团队协作,功能偏轻量；不支持复杂工作流编排,不直接涉及,模型无关（管理层）,活跃,免费开源,适合团队管理多个 agent 实例的可视化工具
+Nanobot,基础设施类,全球,超轻量级 OpenClaw 替代框架（~10MB），专注边缘计算和快速启动,资源受限环境/嵌入式部署/边缘计算/快速启动场景,功能集较 OpenClaw 有裁剪；精简了复杂功能；skill 兼容性可能受限,通过适配器支持主流平台,支持主流 LLM,活跃（20K+ GitHub stars）,免费开源,替代原 NanoClaw 条目；GitHub 20K+ stars 验证社区认可度
+IronClaw,基础设施类,全球,Rust 编写的安全强化版 OpenClaw，支持 WebAssembly 沙箱隔离,安全敏感环境/资源受限部署/防止 LLM 访问敏感数据,Rust 生态插件较少；与 OpenClaw 原生 skill 兼容性有限,通过适配器支持,支持主流 LLM（WASM 沙箱内运行）,活跃,免费开源,Rust + WASM 技术栈；安全性为核心卖点；适合对隔离性要求高的场景
+ZeroClaw,基础设施类,全球,极简主义框架，聚焦零配置部署，兼容 Ollama 本地模型,嵌入式设备/零配置场景/本地模型部署/快速原型,功能极度精简；不适合复杂工作流,有限平台支持,Ollama 本地模型/主流 LLM API,活跃,免费开源,零配置理念；与 Ollama 深度集成适合纯本地部署
+PicoClaw,基础设施类,中国/全球,专为 Raspberry Pi 等低成本硬件优化的叉子（<10MB 内存/1 秒启动）,树莓派部署/IoT 场景/教育/低成本硬件 agent,硬件性能天花板低；仅支持轻量任务,有限平台支持,国产模型（GLM/DeepSeek）+ Ollama,活跃,免费开源,中国社区维护；极致资源优化；适合教育和 IoT 场景
+MemOS,基础设施类,全球,内存优化操作系统层，为 OpenClaw 提供持久化知识积累和多 agent 协作,长期记忆/知识积累/多 agent 协作/跨会话上下文保持,与 OpenViking 功能有重叠；集成复杂度较高,不直接涉及,模型无关,活跃,免费开源,与 OpenViking 互补；侧重内存层优化而非文件系统范式
+NagaAgent,基础设施类,全球,社区叉子，强调多 agent swarm（蜂群）协作，支持复杂任务分解,多 agent 协作/复杂任务分解/蜂群调度/并行执行,蜂群协作调试困难；资源消耗随 agent 数量线性增长,通过 OpenClaw 原生支持,主流 LLM,活跃,免费开源,多 agent swarm 是 2026 年热点方向；社区驱动
+Pinion-OS,基础设施类,全球,Rust-based agent 操作系统，单二进制文件（32MB）冷启动 180ms,高性能 agent 部署/容器化/边缘计算/快速扩缩容,独立于 OpenClaw 但高度兼容；自有生态较小,通过适配器支持,主流 LLM,活跃,免费开源,Rust 单二进制架构；32MB/180ms 冷启动；独立项目但兼容 OpenClaw
+nix-openclaw,基础设施类,全球,Nix 包管理器集成版本，便于 Linux 部署和版本控制,Linux 声明式部署/可复现构建/版本锁定/CI/CD,仅适用于 Nix/NixOS 用户；学习曲线较陡,通过 OpenClaw 原生支持,与 OpenClaw 核心一致,活跃,免费开源,Nix 生态集成；适合追求可复现部署的 DevOps 团队
+openclaw-windows-node,基础设施类,全球,Windows 专用伴侣套件，含系统托盘应用和 PowerToys 集成,Windows 桌面集成/系统托盘常驻/PowerToys 工作流,仅 Windows 平台；依赖 .NET 运行时,通过 OpenClaw 原生支持,与 OpenClaw 核心一致,活跃,免费开源,填补 OpenClaw 在 Windows 桌面体验的空白
+n8n-claw,基础设施类,全球,使用 n8n 工作流自动化和 Supabase 构建的自托管 agent 框架,企业级工作流/自动化流程/数据管道/多系统集成,依赖 n8n 和 Supabase；自托管运维成本,通过 n8n 节点支持多平台,主流 LLM,活跃,免费开源（自托管）,n8n 可视化工作流 + Supabase 后端；适合企业级自动化场景
+KiloClaw,托管类,全球,Kilo 公司运营的托管平台，500+ 模型零加价 token 转发,企业级部署/多模型切换/团队协作/生产环境运行,价格较高（$199/月 Pro 版）；依赖第三方服务商,Slack/Discord/Telegram/WhatsApp/Teams,500+ 模型（含 GPT-4o/Claude/Gemini/Llama 等）,活跃,$19-199/月,GitLab 联合创始人投资；零加价 token 定价模式
+Clawi.ai,托管类,全球,5 分钟快速部署，隐私优先的 OpenClaw 托管服务,个人助理/客服/社群运营,具体功能和限制信息较少,WhatsApp/Telegram/Discord,主流 LLM,活跃,订阅制（具体价格待确认）,隐私优先设计；支持多消息平台快速接入
+Agent 37,托管类,全球,$3.99/月超低价托管，30 秒上线，含 1vCPU+4GB 内存,个人助理/轻量自动化/连接 850+ 应用,硬件配置较低（1vCPU+4GB）；不适合高负载场景,通过 OpenClaw 插件支持,主流 LLM（需自带 API key）,活跃,$3.99/月起,性价比极高；可连接 850+ 第三方应用；适合个人用户
+Donely,托管类,全球,多实例管理平台，支持创建和管理多个 OpenClaw 实例,多 agent 管理/按需扩缩/团队协作,免费层功能有限；AI 积分按量消耗,通过 OpenClaw 原生支持,主流 LLM,活跃（月收入 ~$44K）,$0/月 + 按量 AI 积分,Freemium 模式；月收入约 $44K 说明有稳定用户基础
+ClawAgora,托管类,全球,$29.90/月托管 + 模板市场，开发者可上架售卖 workspace,托管部署/模板交易/workspace 分发,市场模板质量参差不齐；生态规模待观察,通过 OpenClaw 原生支持,主流 LLM,活跃,$29.90/月,双边市场模式；开发者可通过售卖 workspace 模板获利
+RunMyClaw,托管类,全球,$30/月专属服务器 + Web 仪表盘管理,专属部署/Web 管理/生产环境运行,单一服务器架构；无高可用方案,通过 OpenClaw 原生支持,主流 LLM,活跃,$30/月,提供专属服务器而非共享环境；含 Web 仪表盘
+xCloud,托管类,全球,$24/月提供真 OpenClaw workspace 可定制环境,可定制 workspace/开发测试/生产部署,具体功能细节较少,通过 OpenClaw 原生支持,主流 LLM,活跃,$24/月,强调「真 OpenClaw workspace」而非模拟环境
+KiwiClaw,托管类,全球,$15-39/月含 LLM 访问，AES-256 加密 + 审计日志,安全敏感场景/企业部署/合规需求,模型选择范围可能受限于合作方,通过 OpenClaw 原生支持,含内置 LLM 访问（具体模型未公开）,活跃,$15-39/月,AES-256 加密 + 审计日志；适合对安全合规有要求的用户
+OpenClaw Cloud,托管类,全球,官方托管服务，提供官方技术支持,生产部署/企业使用/官方支持保障,价格较高；功能与自建相比差异待评估,通过 OpenClaw 原生支持全部平台,与 OpenClaw 核心一致,活跃,$39.90/月,官方出品；含官方技术支持；适合需要官方保障的企业用户
+OpenClaw Marketplace,托管类,全球,预制 AI agent 市场，即买即用的 agent 模板,快速获取特定场景 agent/非技术用户使用,模板定制灵活性有限；agent 质量依赖创作者,通过 OpenClaw 原生支持,主流 LLM,活跃,$29/月起,即买即用模式；降低非技术用户使用门槛
+BankrBot,托管类,全球,AI-native 加密银行，提供 agent 钱包/DeFi 自动化/跨链操作,agent 钱包管理/DeFi 自动化/跨链交易/加密资产管理,金融风险高；监管合规不确定；智能合约安全需审计,不直接涉及（链上交互）,主流 LLM,活跃,按用量计费（链上 gas 费）,托管在 Base 网络；DeFi + AI agent 交叉赛道代表项目；注意金融风险
+Clanker,托管类,全球,Token 发行基础设施，允许 agent 自主创建和管理 token,链上 token 发行/agent 自主资产管理/去中心化部署,高度投机性；监管风险极高；token 可能无实际价值,不直接涉及（链上交互）,主流 LLM,活跃,免费开源 + 链上交易费用,AI agent + token 经济代表项目；2026 年初 crypto-agent 热潮产物
+ClawSecure,安全类,全球,独立安全审计服务，3 层审计协议扫描 OpenClaw skills,安全审计/漏洞检测/合规检查/skill 安全评估,仅覆盖已知漏洞模式；无法检测逻辑漏洞,不直接涉及,模型无关（安全审计层）,活跃,待确认,已扫描 2890+ skills 发现 41% 有安全漏洞；是生态安全的重要基础设施
+SecureClaw,安全类,全球,Adversa AI 开源安全框架，OWASP 对齐，56 项自动检查 + 15 条运行时规则,安全扫描/运行时防护/OWASP 合规/自动化安全检查,规则集需持续更新；对新型攻击向量响应可能滞后,不直接涉及,模型无关（安全层）,活跃,免费开源,Adversa AI 开源；与 OWASP AI 安全标准对齐
+NemoClaw,安全类,全球,NVIDIA 开源安全框架，沙箱环境 + 策略控制，支持 Nemotron 本地模型,沙箱隔离/策略管控/安全运行时/本地模型部署,对非 NVIDIA 生态的集成支持有限,不直接涉及,Nemotron/支持其他本地模型,活跃,免费开源,NVIDIA 开源；与 Nemotron 本地模型深度集成；适合对数据隐私要求高的场景
+ClawBands,安全类,全球,安全中间件，拦截工具调用并要求显式批准，防止未授权执行,工具调用审批/执行拦截/权限管控/安全合规,可能降低 agent 响应速度；需要人工审批流程,不直接涉及,模型无关（中间件层）,活跃,免费开源,类似防火墙的工具调用拦截机制；适合高安全要求场景
+Aquaman,安全类,全球,凭证隔离代理，确保 API 密钥不进入 agent 进程,凭证安全/API 密钥隔离/密钥轮换/零信任架构,增加架构复杂度；可能引入延迟,不直接涉及,模型无关（凭证代理层）,活跃,免费开源,解决 agent 持有敏感凭证的核心安全问题
+APort Agent Guardrails,安全类,全球,预行动授权系统，40+ 阻塞模式，OWASP 对齐,行动前审批/危险操作阻塞/合规检查/安全策略执行,规则可能过于保守导致误拦截；需要持续调优,不直接涉及,模型无关（策略层）,活跃,免费开源,40+ 预置阻塞模式；OWASP 对齐；与 SecureClaw 互补
+Archestra,安全类,全球,企业级扩展，支持 RBAC（角色-based 访问控制）,企业级权限管理/角色分配/访问控制/审计追踪,配置复杂度高；小团队可能过重,不直接涉及,模型无关（权限管理层）,活跃（2.8K GitHub stars）,免费开源,GitHub 2.8K stars；填补 OpenClaw 企业级权限管理空白
+openclaw-saml,安全类,全球,SAML 认证集成，针对企业身份管理,企业 SSO/身份联邦/SAML 认证/企业 IdP 集成,仅支持 SAML 协议；不支持 OIDC,不直接涉及,模型无关（认证层）,活跃,免费开源,企业身份管理刚需；适合已有 SAML IdP 的组织
+OpenClaw PRISM,安全类,全球,零叉子运行时安全层，分布 10 个生命周期钩子（消息入口/工具执行等）,运行时监控/生命周期安全钩子/行为审计/异常检测,钩子可能影响性能；需与具体部署环境适配,不直接涉及,模型无关（运行时层）,活跃,免费开源,10 个生命周期钩子覆盖完整执行链；含基准工件；零叉子设计降低集成成本
+Moltbook,垂直应用类,全球,Reddit 式 AI agent 社交网络，仅 agent 可发帖互动,agent 社交实验/AI 行为研究/社区运营测试,仅 agent 可发帖（人类仅观察）；内容质量依赖 agent 能力,平台内置社交功能,主流 LLM（agent 自选）,活跃（150 万+ agent 注册）,免费,Reddit 式社交网络；仅 AI agent 可发帖；150 万+ agent 注册
+Dendrite,垂直应用类,全球,神经网络式 agent 协作工具，强调实时事件处理,实时事件处理/多 agent 协作/流式数据/事件驱动架构,架构复杂度高；调试困难；社区规模较小,不直接涉及,主流 LLM,活跃,免费开源,神经网络隐喻的协作模式；适合需要实时事件驱动的 agent 系统
+openclaw-china (BytePioneer-AI),基础设施类,中国,开源插件集合，支持中国主流 IM 平台接入 OpenClaw,国内 IM 集成/企业内部部署/中文场景适配,依赖各平台 API 政策变化；部分平台需企业认证,飞书/钉钉/QQ/企业微信/微信,与 OpenClaw 核心一致 + 国内模型,活跃（1.9K GitHub stars）,免费开源,BytePioneer-AI 维护；解决 OpenClaw 接入中国 IM 的关键插件
+OpenClaw-Docker-CN-IM,基础设施类,中国,Docker 整合版，预装四大国内 IM 插件一键部署,国内 IM 快速部署/本地化环境搭建,更新可能滞后于上游；Docker 镜像体积较大,飞书/钉钉/QQ/企业微信,与 OpenClaw 核心一致 + 国内模型,活跃,免费开源,降低国内用户部署门槛；预装 openclaw-china 插件集
+QClaw (腾讯),托管类,中国,腾讯云一键部署 OpenClaw，深度集成微信/QQ 生态,微信/QQ 场景自动化/企业客服/社群运营,仅支持腾讯生态；模型选择可能受限于腾讯合作方,微信/QQ,腾讯混元/GPT 系列/国内主流模型,活跃,腾讯云按量计费,腾讯官方产品；适合已在腾讯生态的用户
+ArkClaw (字节跳动),托管类,中国,火山引擎 SaaS 版 OpenClaw，浏览器即用，深度集成飞书,飞书场景自动化/企业内部 agent/文档处理,仅支持字节跳动生态；部分功能需飞书企业版,飞书,豆包大模型/GPT 系列/国内主流模型,活跃,火山引擎按量计费,字节跳动官方产品；浏览器即用降低使用门槛
+AutoClaw (智谱),托管类,中国,智谱一键安装本地版，50+ 预装技能，支持国产模型,本地部署/离线使用/中文场景/教育研究,技能生态较全球版小；主要面向中文用户,通过插件支持主流平台,GLM-4/DeepSeek/Kimi/ChatGPT,活跃,免费安装（模型 API 另计）,智谱出品；50+ 预装中文技能；支持多种国产大模型
+JVS Claw (阿里巴巴),托管类,中国,阿里云移动端 App 形态的 OpenClaw，9.9 元起部署,移动端 agent/轻量自动化/个人助理,移动端功能可能受限；App 形态灵活性不如完整版,钉钉/支付宝小程序,通义千问/GPT 系列/国内主流模型,活跃,9.9 元/月起,阿里巴巴产品；移动端优先；极低入门价格
+Kimi Claw (月之暗面),托管类,中国,Moonshot AI 集成托管版，含模型访问,中文对话/长文本处理/知识问答,模型选择限定于 Moonshot 合作模型；功能定制较少,通过插件支持,Kimi（Moonshot）/有限的第三方模型,活跃,订阅制（含模型访问费用）,月之暗面出品；Kimi 模型在长文本理解上有优势
+OpenClaw Korea,基础设施类,韩国,韩国社区维护的本地化插件集，集成韩国主流平台和公共数据,韩国本地平台集成/公共数据查询/韩语场景,社区维护力度待观察；公共数据 API 可能有访问限制,KakaoTalk/Naver/배달의민족,与 OpenClaw 核心一致 + 韩国本地模型,活跃,免费开源,韩国社区维护；集成韩国特色平台和公共数据服务
+openclaw-kakao-plugin,基础设施类,韩国,KakaoTalk 频道专用插件，连接 OpenClaw 与 KakaoTalk,KakaoTalk 客服/社群运营/个人助理,仅支持 KakaoTalk；需 KakaoTalk 频道管理员权限,KakaoTalk,与 OpenClaw 核心一致,活跃,免费开源,单一平台插件；韩国社区贡献
+Purr-Fect Claw (Pieverse),垂直应用类,韩国/全球,LINE/Kakao/WhatsApp on-chain agent，DeFi 自动交易,DeFi 交易/跨平台消息/链上操作/资产管理,涉及金融风险；智能合约安全性需审计；监管合规不确定,LINE/KakaoTalk/WhatsApp,主流 LLM,活跃,免费开源 + 链上交易费用,Pieverse 团队开发；结合消息平台与 DeFi；注意金融风险
